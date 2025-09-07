@@ -22,4 +22,4 @@ stages:
         backendAzureRmResourceGroupName: 'hashicorp-boundary-rg'
         backendAzureRmStorageAccountName: 'lokisopra'
         backendAzureRmContainerName: 'ruler-loki'
-        backendAzureRmKey: 'my-tf-pln'
+        backendAzureRmKey: 'my-tf-plan'
