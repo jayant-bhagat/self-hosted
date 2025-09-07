@@ -13,13 +13,14 @@ stages:
       displayName: terrform toolinstall
       inputs:
         terraformVersion: 'latest'
+  
     - task: TerraformTask@5
-      displayName: plan init
+      displayName: terrform plan
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendAzureRmOverrideSubscriptionID: '7ad68a7a-1c98-4cde-925e-da17234ab644'
-        backendAzureRmResourceGroupName: 'hashicorp-boundary-rg'
+        backendServiceArm: 'PER-MSD-ZTAHIR_01(7ad68a7a-1c98-4cde-925e-da17234ab644)'
         backendAzureRmStorageAccountName: 'lokisopra'
         backendAzureRmContainerName: 'ruler-loki'
         backendAzureRmKey: 'my-tf-plan'
+        
