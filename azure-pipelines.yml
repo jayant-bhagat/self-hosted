@@ -18,7 +18,7 @@ stages:
         backendAzureRmKey: 'my-tf-plan'
 
     - task: TerraformTask@5
-      dsiaplayname: plan
+      displayName: plan
       inputs:
         provider: 'azurerm'
         command: 'plan'
