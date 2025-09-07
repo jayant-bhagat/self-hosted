@@ -1,0 +1,25 @@
+trigger: 
+- main
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'PER-MSD-ZTAHIR_01(7ad68a7a-1c98-4cde-925e-da17234ab644)'
+        backendAzureRmStorageAccountName: 'lokispra'
+        backendAzureRmContainerName: 'rulter-loki'
+        backendAzureRmKey: 'my-tf-plan'
+
+    - task: TerraformTask@5
+      dsiaplayname: plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+
