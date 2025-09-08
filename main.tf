@@ -37,11 +37,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   admin_username        = "azureuser"
   network_interface_ids = [azurerm_network_interface.example.id]
 
-  admin_ssh_key {
-    username   = "azureuser"
-    public_key = file("~/.ssh/id_rsa.pub") # Replace with your public key path
-  }
-
+ 
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
