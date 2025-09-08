@@ -6,6 +6,9 @@
 trigger:
 - main
 
+variables:
+ - group: dot-net-version
+
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
@@ -16,7 +19,7 @@ stages:
       vmImage: ubuntu-latest
 
     steps:
-    - script: echo Hello, world!
+    - script: echo Hello, $(env)
       displayName: 'Run a one-line script'
 
     - script: |
@@ -35,7 +38,7 @@ stages:
       vmImage: ubuntu-latest
 
     steps:
-    - script: echo Hello, Dev
+    - script: echo Hello, $(version)
       displayName: 'Run a one-line script'
 
     - script: |
