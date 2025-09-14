@@ -10,11 +10,13 @@ variables:
  - group: dot-net-version
 
 stages:
-- stage: 'Build'
-  template: templates/a.yaml
-  parameters:
-    projectName: "Project A"
-    buildScript: "npm install && npm run build"
+ - stage: Build
+   displayName: "Project A Build Stage"
+   jobs:
+     - template: templates/a.yml
+       parameters:
+         projectName: "Project A"
+         buildScript: "npm install && npm run build"
 
   
 
