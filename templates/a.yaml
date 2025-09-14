@@ -1,0 +1,16 @@
+# templates/build-job.yml
+parameters:
+  projectName: ''
+  buildScript: ''
+
+jobs:
+  - job: Build
+    displayName: "Build $(projectName)"
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - checkout: self
+      - script: |
+          echo "Building project: ${{ parameters.projectName }}"
+          ${{ parameters.buildScript }}
+        displayName: "Run build script"
