@@ -28,13 +28,14 @@ stages:
       displayName: 'Run a multi-line script'
 
 - stage: 'Dev'
+  
   displayName: 'Deploy to the dev environment'
   dependsOn: Build
   condition:  succeeded()
   jobs:
   - job: 'Deploy'
     displayName: 'Dev job'
-    environment: dev
+    environment: "dev"
     pool:
       vmImage: ubuntu-latest
 
