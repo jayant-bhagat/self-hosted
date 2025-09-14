@@ -11,21 +11,12 @@ variables:
 
 stages:
 - stage: 'Build'
-  displayName: 'Build the web application'
-  jobs: 
-  - job: 'Build'
-    displayName: 'Build job'
-    pool:
-      vmImage: ubuntu-latest
+  template: templates/a.yaml
+  parameters:
+    projectName: "Project A"
+    buildScript: "npm install && npm run build"
 
-    steps:
-    - script: echo Hello, $(env)
-      displayName: 'Run a one-line script'
-
-    - script: |
-        echo Add other tasks to build, test, and deploy your project.
-        echo See https://aka.ms/yaml
-      displayName: 'Run a multi-line script'
+  
 
 - stage: 'Dev'
   
