@@ -1,12 +1,18 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "~> 3.0"
-    }
-  }
-}
+terraform {{
+backend "s3" {{
+    bucket = "my-terraform-state-bucket"
+    key    = "path/to/my/terraform.tfstate"
+    region = "us-west-1"
+  }}
 
-provider "azurerm" {
-  features {}
-}
+  required_providers {{
+    azurerm = {{
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }}
+  }}
+
+  required_version = ">= 0.13"
+
+
+}}
